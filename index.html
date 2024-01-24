@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Spam Email Classifier </title>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+
+<body style = "background :url('./static/c.jpg')" >
+
+ <div class="login">
+<h1>⚠️𝕊.𝔼.ℂ⚠️</h1>
+	<h4> Spam Email Classifier </h4>
+
+
+    <form action="{{ url_for('predict')}}" method="POST">
+    	<textarea  name="message" rows="6" cols="50" required="required"></textarea>
+		<br> </br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+        	<div class="results">
+
+	{% if prediction == 1%}
+	<h2 style="color:red;">Looking Spam⚠️, Be safe</h2>
+				<marquee> Spam⚠️⚠️⚠️</marquee>
+	{% elif prediction == 0%}
+				<h2 style="color:green;"><b>Not a Spam</b></h2>
+				<marquee> Ham 🟢🟢🟢</marquee>
+	{% endif %}
+
+
+</div>
+
+    </form>
+
+</div>
